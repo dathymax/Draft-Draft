@@ -1,0 +1,14 @@
+stages:
+  - sync
+
+sync_with_github:
+  stage: sync
+  script:
+    - git config user.name "dathymax"
+    - git config user.email "dathymax@gmail.com"
+    - git clone --mirror https://github.com/dathymax/Draft-Draft.git
+    - cd Draft-Draft
+    - git remote add gitlab https://gitlab.com/draft3063824/draft.git
+    - git push gitlab --mirror
+  only:
+    - main
